@@ -3,7 +3,7 @@ CXXFLAGS	=	-Wall -Werror -Wextra -std=c++98
 NAME		=	Whatever
 SRCS		=	main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-HFS			=	Whatever.hpp
+HFS			=	whatever.hpp
 
 %.o			:	%.cpp $(HFS)
 				$(CXX) $(CXXFLAGS) -c $< -o $@
