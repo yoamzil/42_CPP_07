@@ -28,12 +28,12 @@ class   Array
 		unsigned int    size;
     public:
         Array();
-        ~Array();
 		Array(unsigned int n);
         Array(Array const &original);
         Array  &operator=(Array const &original);
 		T	&operator[](unsigned int index);
 		unsigned int    Size(void) const;
+        ~Array();
 };
 
 #include "Array.tpp"

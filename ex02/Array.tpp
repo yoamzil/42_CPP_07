@@ -31,12 +31,6 @@ Array<T>::Array(unsigned int n)
 }
 
 template <typename T>
-Array<T>::~Array()
-{
-	delete[] this->array;
-}
-
-template <typename T>
 Array<T>::Array(Array const &original)
 {
 	this->size = original.size;
@@ -70,3 +64,11 @@ unsigned int    Array<T>::Size(void) const
 {
 	return (this->size);
 }
+
+template <typename T>
+Array<T>::~Array()
+{
+	delete[] this->array;
+}
+
+
