@@ -15,9 +15,33 @@
 /* ************************************************************************************** */
 
 #include "Array.hpp"
-#include "Array.tpp"
+#include <iostream>
 
-int	main(void)
+int main()
 {
-	return (0);
+    Array<int> arr1(5);
+    for (unsigned int i = 0; i < arr1.Size(); i++)
+	{
+        arr1[i] = i * 10;
+    }
+    //  copy constructor
+    Array<int> arr2 = arr1;
+    // assignment operator
+    Array<int> arr3;
+    arr3 = arr2;
+    // printing arr3
+    for (unsigned int i = 0; i < arr3.Size(); i++) {
+        std::cout << "arr3[" << i << "] = " << arr3[i] << std::endl;
+    }
+    // exception
+    try
+	{
+        std::cout << arr3[10] << std::endl; // This should throw an exception
+    }
+	catch (const std::exception& e)
+	{
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
+
+    return (0);
 }

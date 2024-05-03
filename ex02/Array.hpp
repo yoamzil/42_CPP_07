@@ -18,5 +18,24 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <exception>
+
+template <typename T>
+class   Array
+{
+    private:
+		T   *array;
+		unsigned int    size;
+    public:
+        Array();
+        ~Array();
+		Array(unsigned int n);
+        Array(Array const &original);
+        Array  &operator=(Array const &original);
+		T	&operator[](unsigned int index);
+		unsigned int    Size(void) const;
+};
+
+#include "Array.tpp"
 
 #endif
