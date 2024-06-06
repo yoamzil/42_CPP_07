@@ -16,24 +16,34 @@
 
 #include "iter.hpp"
 
-int	main(void)
+class Awesome
 {
-	char arr[4] = {'a', 'b', 'c', 'd'};
+  public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+  private:
+    int _n;
+};
 
-	std::cout << "Before: ";
-	for (int i = 0; i < 4; i++)
-	{
-		std::cout << arr[i] << " ";
-	}
-	std::cout << std::endl;
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
+{
+  o << rhs.get();
+  return o;
+}
 
-	::iter(arr, 4, function);
+template< typename T >
+void print( T& x )
+{
+  std::cout << x << std::endl;
+  return;
+}
 
-	std::cout << "After: ";
-	for (int i = 0; i < 4; i++)
-	{
-		std::cout << arr[i] << " ";
-	}
+int main() {
+  int tab[] = { 0, 1, 2, 3, 4 };
+  Awesome tab2[5];
 
-	return (0);
+  iter( tab, 5, print<const int> );
+  iter( tab2, 5, print<Awesome> );
+
+  return 0;
 }

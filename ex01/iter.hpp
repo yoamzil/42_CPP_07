@@ -28,11 +28,22 @@ void	function(T *c)
 
 template <typename T>
 
-void	iter(T *a, int l, void (*ft)(T *))
+void	iter(T *a, int l, void (*ft)(T&))
 {
 	for (int i = 0; i < l; i++)
 	{
-		ft(&a[i]);
+		ft(a[i]);
 	}
 }
+
+template <typename T>
+
+void iter(const T *a, int l, void (*ft)(const T&))
+{
+    for (int i = 0; i < l; i++)
+    {
+        ft(a[i]);
+    }
+}
+
 #endif
